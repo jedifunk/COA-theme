@@ -1,0 +1,15 @@
+# Keep these files out of the repo
+/wp-content/themes/twenty*
+/wp-content/upgrade
+/wp-content/uploads
+/wp-content/node_modules
+/sitemap.*
+/wp-config.php
+*.sql
+/.htaccess
+
+
+# Hidden files
+*.DS_Store
+*Thumbs.db
+*.sass-cache*
