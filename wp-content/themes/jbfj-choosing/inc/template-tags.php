@@ -51,6 +51,12 @@ function jbfj_choosing_entry_footer() {
 		if ( $categories_list && jbfj_choosing_categorized_blog() ) {
 			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'jbfj-choosing' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
+		
+		//$locations = get_terms( array( 'taxonomy' => 'location' ) );
+		$locations = coa_get_the_locations();
+		if ( $locations ) {
+			printf( '<span class="location-links">' . esc_html__( 'Location: %1$s', 'jbfj-choosing' ) . '</span>', $locations );
+		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'jbfj-choosing' ) );
