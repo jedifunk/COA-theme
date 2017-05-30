@@ -1,0 +1,4 @@
+<?php
+/*
+* Front page only
+*/
