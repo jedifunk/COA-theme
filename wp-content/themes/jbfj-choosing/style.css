@@ -708,7 +708,6 @@ object {
 }
 .flex-wrapper {
 	display: flex;
-	justify-content: space-between;
 }
 /* Nav */
 .main-navigation ul{
@@ -730,6 +729,7 @@ object {
 /* Header */
 header .flex-wrapper {
 	align-items: baseline;
+	justify-content: space-between;
 }
 .site-title a {
 	font-weight: 600;
