@@ -27,7 +27,7 @@ function jbfj_choosing_setup() {
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'jbfj-choosing' ),
 	) );
-	
+
 }
 endif;
 add_action( 'after_setup_theme', 'jbfj_choosing_setup' );
@@ -52,6 +52,7 @@ add_action( 'widgets_init', 'jbfj_choosing_widgets_init' );
 
 
 function jbfj_choosing_scripts() {
+	wp_enqueue_style( 'google-font', '//fonts.googleapis.com/css?family=Raleway:300,300i,600,600i', null, null, null);
 	wp_enqueue_style( 'jbfj-choosing-style', get_stylesheet_uri() );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
