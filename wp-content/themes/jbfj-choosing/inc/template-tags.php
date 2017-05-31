@@ -43,7 +43,7 @@ if ( ! function_exists( 'jbfj_choosing_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function jbfj_choosing_entry_footer() {
+function jbfj_choosing_entry_footer($id) {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
@@ -53,7 +53,7 @@ function jbfj_choosing_entry_footer() {
 		}
 
 		//$locations = get_terms( array( 'taxonomy' => 'location' ) );
-		$locations = get_the_term_list( $post->ID, 'location');
+		$locations = get_the_term_list( $id, 'location');
 		if ( $locations ) {
 			printf( '<span class="location-links">' . esc_html__( 'Location: %1$s', 'jbfj-choosing' ) . '</span>', $locations );
 		}

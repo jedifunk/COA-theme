@@ -83,7 +83,7 @@ get_header(); ?>
 				<?php endwhile; wp_reset_postdata(); endif; ?>
 			</div>
 
-			<div class="flex-wrapper has-sidebar">
+			<div class="flex-wrapper">
 
 				<div class="content">
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -92,8 +92,8 @@ get_header(); ?>
 				</div>
 
 				<div class="sidebar">
-					hello
-					<?php //get_sidebar(); ?>
+					<p>hello</p>
+					
 				</div>
 
 			</div>

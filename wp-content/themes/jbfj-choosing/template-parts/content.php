@@ -41,6 +41,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php jbfj_choosing_entry_footer(); ?>
+		<?php jbfj_choosing_entry_footer($post->ID); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
