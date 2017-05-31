@@ -476,6 +476,19 @@ textarea:focus {
 textarea {
 	width: 100%;
 }
+.searchform > div {
+	position: relative;
+}
+.searchform button {
+	position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    background: black;
+    height: 100%;
+    color: white;
+    border-radius: 0 4px 4px 0;
+}
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -596,20 +609,6 @@ textarea {
 }
 
 /*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .posts-navigation, /* Older / Newer Posts Navigation (always hidden) */
-.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
-	display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
-.infinity-end.neverending .site-footer {
-	display: block;
-}
-
-/*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
 .page-content .wp-smiley,
@@ -626,6 +625,13 @@ embed,
 iframe,
 object {
 	max-width: 100%;
+}
+figure a {
+	text-decoration: none;
+	color: white;
+}
+img {
+	display: block;
 }
 
 /*--------------------------------------------------------------
@@ -741,4 +747,44 @@ header .flex-wrapper {
 .site-title a:active {
 	color: black;
 }
+
+/* Featured */
+.featured.flex-wrapper {
+	justify-content: space-around;
+}
+.featured-item figure {
+	position: relative;
+	background-color: black;
+}
+.featured-item figure img {
+	opacity: 1;
+	transition: opacity 0.5s ease;
+}
+.featured-item figure:hover img {
+	opacity: .7;
+	transition: opacity 0.5s ease;
+}
+.featured-item figure figcaption {
+	position: absolute;
+	bottom: 15px;
+	margin: 0 30px 0px 0;
+	padding: 10px 15px;
+	background-color: rgba(0, 0, 0, 0.4);
+	color: white;
+}
+.featured-item .entry-title {
+	font-weight: 400;
+	margin: 0;
+	padding-bottom: 5px;
+	border-bottom: 1px dotted white;
+	text-transform: uppercase;
+}
+.featured-item .entry-meta {
+	margin-top: 3px;
+	font-size: .75rem;
+}
+
 /* Content */
+.has-sidebar .content {
+	flex: 2 0;
+}
