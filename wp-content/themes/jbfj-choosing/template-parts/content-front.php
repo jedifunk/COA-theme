@@ -4,14 +4,23 @@
 *
 * @package Choosing_Our_Adventure
 */
+// Get BKG image
+if ( get_the_post_thumbnail($post->ID) != '' ) {
+   $feat_img = the_post_thumbnail();
+} else {
+	$feat_img = main_image();
+	//$feat_img = 'http://placehold.it/500x250';
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		<a href="<?php echo esc_url( get_permalink() ); ?>">
+			<img src="<?php echo $feat_img; ?>" alt="<?php the_title(); ?>" />
+		</a>
+		<?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
 
-		if ( 'post' === get_post_type() ) : ?>
+		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php jbfj_choosing_posted_on(); ?>
 		</div><!-- .entry-meta -->

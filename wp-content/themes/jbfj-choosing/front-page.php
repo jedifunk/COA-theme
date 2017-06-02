@@ -85,7 +85,7 @@ get_header(); ?>
 
 			<div class="grid-wrapper">
 
-				<div class="content">
+				<div class="content inner-grid">
 					<?php
 					$args = array(
 						'cat' => 12

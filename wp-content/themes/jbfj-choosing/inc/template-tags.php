@@ -49,7 +49,7 @@ function jbfj_choosing_entry_footer($id) {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'jbfj-choosing' ) );
 		if ( $categories_list && jbfj_choosing_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'jbfj-choosing' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'jbfj-choosing' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		//$locations = get_terms( array( 'taxonomy' => 'location' ) );
@@ -61,7 +61,7 @@ function jbfj_choosing_entry_footer($id) {
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'jbfj-choosing' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'jbfj-choosing' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links">' . esc_html__( '%1$s', 'jbfj-choosing' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 

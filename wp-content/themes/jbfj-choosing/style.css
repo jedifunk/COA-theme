@@ -707,7 +707,7 @@ figure a {
 /****** My Stuff *****/
 .wrapper {
 	width: 100%;
-	max-width: 1400px;
+	max-width: 1200px;
 	margin: 0 auto;
 }
 .flex-wrapper {
@@ -715,7 +715,13 @@ figure a {
 }
 .grid-wrapper {
 	display: grid;
-	grid-template-columns: [main] 75% [sidebar] 25%;
+	grid-template-columns: [main] 2fr [sidebar] 1fr;
+	grid-gap: 2rem;
+}
+.inner-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 2rem;
 }
 /* Nav */
 .main-navigation ul{
