@@ -83,18 +83,20 @@ get_header(); ?>
 				<?php endwhile; wp_reset_postdata(); endif; ?>
 			</div>
 
-			<div class="flex-wrapper">
+			<div class="grid-wrapper">
 
 				<div class="content">
-					<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
-						get_template_part( 'template-parts/content', get_post_format() );
-					endwhile; endif; ?>
+					<?php
+					$args = array(
+						'cat' => 12
+					);
+					$all = new WP_Query( $args );
+					if ( $all->have_posts() ) : while ( $all->have_posts() ) : $all->the_post();
+						get_template_part( 'template-parts/content', 'front' );
+					endwhile; wp_reset_postdata(); endif; ?>
 				</div>
 
-				<div class="sidebar">
-					<p>hello</p>
-					
-				</div>
+				<?php get_sidebar(); ?>
 
 			</div>
 		</main><!-- #main -->

@@ -713,6 +713,10 @@ figure a {
 .flex-wrapper {
 	display: flex;
 }
+.grid-wrapper {
+	display: grid;
+	grid-template-columns: [main] 75% [sidebar] 25%;
+}
 /* Nav */
 .main-navigation ul{
 	display: flex;
@@ -783,6 +787,3 @@ header .flex-wrapper {
 }
 
 /* Content */
-.has-sidebar .content {
-	flex: 2 0;
-}
