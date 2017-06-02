@@ -88,7 +88,7 @@ get_header(); ?>
 				<div class="content inner-grid">
 					<?php
 					$args = array(
-						'cat' => 12
+						'cat' => 15
 					);
 					$all = new WP_Query( $args );
 					if ( $all->have_posts() ) : while ( $all->have_posts() ) : $all->the_post();

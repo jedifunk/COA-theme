@@ -11,8 +11,6 @@ function main_image() {
 		$imagepieces = explode('"', $image);
 		$imagepath = $imagepieces[1];
 		$main=wp_get_attachment_url($num);
-		$template=get_template_directory();
-		$the_title=get_the_title();
 
 		return $main;
 	endif;
