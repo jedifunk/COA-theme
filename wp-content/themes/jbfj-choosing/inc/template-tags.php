@@ -47,15 +47,15 @@ function jbfj_choosing_entry_footer($id) {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ' ', 'jbfj-choosing' ) );
+		$categories_list = get_the_category_list( esc_html__( '', 'jbfj-choosing' ) );
 		if ( $categories_list && jbfj_choosing_categorized_blog() ) {
-			printf( '<span class="cat-links tax">' . esc_html__( '%1$s', 'jbfj-choosing' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<div class="cat-links tax-links">' . esc_html__( '%1$s', 'jbfj-choosing' ) . '</div>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		//$locations = get_terms( array( 'taxonomy' => 'location' ) );
 		$locations = get_the_term_list( $id, 'location');
 		if ( $locations ) {
-			printf( '<span class="location-links tax">' . esc_html__( '%1$s', 'jbfj-choosing' ) . '</span>', $locations );
+			printf( '<div class="location-links tax-links">' . esc_html__( '%1$s', 'jbfj-choosing' ) . '</div>', $locations );
 		}
 
 		/* translators: used between list items, there is a space after the comma */
