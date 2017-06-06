@@ -6,6 +6,9 @@
  */
 get_header(); ?>
 
+	<div class="hero">
+
+	</div>
 	<div id="primary" class="content-area wrapper">
 		<main id="main" class="site-main" role="main">
 
@@ -25,8 +28,8 @@ get_header(); ?>
 					if ( get_the_post_thumbnail($post->ID) != '' ) {
 					   $feat_img = the_post_thumbnail();
 					} else {
-						//$feat_img = main_image();
-						$feat_img = 'http://placehold.it/500x500';
+						$feat_img = main_image();
+						//$feat_img = 'http://placehold.it/500x500';
 					}
 
 				?>
@@ -94,7 +97,9 @@ get_header(); ?>
 					$all = new WP_Query( $args );
 					if ( $all->have_posts() ) : while ( $all->have_posts() ) : $all->the_post();
 						get_template_part( 'template-parts/content', 'front' );
-					endwhile; wp_reset_postdata(); endif; ?>
+					endwhile;
+					the_posts_navigation();
+					wp_reset_postdata(); endif; ?>
 				</div>
 
 				<?php get_sidebar(); ?>

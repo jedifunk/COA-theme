@@ -77,6 +77,7 @@ template {
 
 a {
 	background-color: transparent;
+	color: black;
 }
 
 a:active,
@@ -353,7 +354,8 @@ hr {
 
 ul,
 ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 0;
+	padding-left: 1.1rem;
 }
 
 ul {
@@ -391,6 +393,11 @@ figure {
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Playfair Display', serif;
+	font-weight: 400;
+	margin: 0 0 1rem;
 }
 
 /*--------------------------------------------------------------
@@ -756,6 +763,30 @@ header .flex-wrapper {
 	color: black;
 }
 
+/* Content */
+.entry-title {
+	font-weight: 400;
+	margin: 0;
+	padding-bottom: 5px;
+	border-bottom: 1px dotted;
+	text-transform: uppercase;
+}
+.entry-meta {
+	margin-top: 3px;
+	font-size: .8rem;
+}
+.entry-title a,
+.entry-title a:visited,
+.entry-title a:focus,
+.entry-meta a,
+.entry-meta a:visited,
+.entry-meta a:focus {
+	color: black;
+	text-decoration: none;
+}
+.entry-title a:hover {
+
+}
 /* Featured */
 .featured + .featured {
 	margin-bottom: 2rem;
@@ -784,21 +815,15 @@ header .flex-wrapper {
 	color: white;
 }
 .featured-item .entry-title {
-	font-weight: 400;
-	margin: 0;
-	padding-bottom: 5px;
-	border-bottom: 1px dotted white;
-	text-transform: uppercase;
+	border-bottom-color: white;
 }
-.featured-item .entry-meta {
-	margin-top: 3px;
-	font-size: .75rem;
+.featured-item .entry-title a,
+.featured-item .entry-meta a {
+	color: white;
 }
-
-/* Content */
-
 /* Categories */
-.post-categories {
+.post-categories,
+.widget_categories ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -806,7 +831,8 @@ header .flex-wrapper {
 .post-categories li {
 	display: inline;
 }
-.tax-links a {
+.tax-links a,
+.widget_categories a {
 	padding: 6px 10px 7px;
 	color: white;
 	font-size: .625rem;
@@ -814,7 +840,8 @@ header .flex-wrapper {
 	text-decoration: none;
 	text-transform: uppercase;
 }
-.cat-links a {
+.cat-links a,
+.widget_categories a {
 	background-color: red;
 }
 .location-links a {
@@ -822,10 +849,22 @@ header .flex-wrapper {
 	color: black;
 }
 .tax a:hover {
-	background-color: rgba()
+
 }
+
 /* Sidebar */
+.sidebar .widget {
+	padding: 0 2rem;
+}
 .sidebar h2 {
 	font-size: 1.1rem;
 	text-transform: uppercase;
+	border-bottom: 1px dotted black;
+}
+.widget_categories ul {
+	display: flex;
+	flex-wrap: wrap;
+}
+.widget_categories ul li {
+	margin: 2px;
 }
