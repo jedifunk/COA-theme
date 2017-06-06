@@ -28,8 +28,8 @@ get_header(); ?>
 					if ( get_the_post_thumbnail($post->ID) != '' ) {
 					   $feat_img = the_post_thumbnail();
 					} else {
-						$feat_img = main_image();
-						//$feat_img = 'http://placehold.it/500x500';
+						//$feat_img = main_image();
+						$feat_img = 'http://placehold.it/500x500';
 					}
 
 				?>
