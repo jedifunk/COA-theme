@@ -7,7 +7,13 @@
 get_header(); ?>
 
 	<div class="hero">
-
+		<?php
+			if ( get_theme_mod( 'hero_image' ) ) :
+		?>
+		<img src="<?php echo get_theme_mod( 'hero_image' ); ?>" />
+		<?php else : ?>
+		<img src="http://placehold.it/1600x600" />
+		<?php endif; ?>
 	</div>
 	<div id="primary" class="content-area wrapper">
 		<main id="main" class="site-main" role="main">
@@ -28,8 +34,8 @@ get_header(); ?>
 					if ( get_the_post_thumbnail($post->ID) != '' ) {
 					   $feat_img = the_post_thumbnail();
 					} else {
-						$feat_img = main_image();
-						//$feat_img = 'http://placehold.it/500x500';
+						//$feat_img = main_image();
+						$feat_img = 'http://placehold.it/575x575';
 					}
 
 				?>
@@ -66,7 +72,7 @@ get_header(); ?>
 					   $feat_img = the_post_thumbnail();
 					} else {
 						//$feat_img = main_image();
-						$feat_img = 'http://placehold.it/300x500';
+						$feat_img = 'http://placehold.it/375x500';
 					}
 
 				?>

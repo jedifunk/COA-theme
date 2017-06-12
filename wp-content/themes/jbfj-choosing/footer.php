@@ -13,11 +13,9 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer wrapper" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'jbfj-choosing' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'jbfj-choosing' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'jbfj-choosing' ), 'jbfj-choosing', '<a href="https://automattic.com/" rel="designer">Bryce Flory</a>' ); ?>
+			<p>&copy; 2017 Choosing Our Adventure</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

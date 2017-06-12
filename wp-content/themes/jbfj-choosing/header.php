@@ -26,7 +26,7 @@
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<?php wp_nav_menu( array( 'menu' => 'main-nav' ) ); ?>
+				<?php wp_nav_menu( array( 'menu' => 'main-nav', 'container' => '' ) ); ?>
 			</nav><!-- #site-navigation -->
 			<?php get_search_form(); ?>
 		</div>

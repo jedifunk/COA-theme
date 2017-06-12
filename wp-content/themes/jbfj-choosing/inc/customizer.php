@@ -14,6 +14,23 @@ function jbfj_choosing_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'hero_image' )->transport = 'postMessage';
+
+	// Add Hero Section
+	$wp_customize->add_section( 'hero' , array(
+	    'title' => __( 'Hero Image', 'jbfj-choosing' ),
+	    'priority' => 1
+	) );
+	// Add Logo Settings
+	$wp_customize->add_setting( 'hero_image' , array( 'default' => '' ));
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control( $wp_customize, 'hero_image', array(
+			    'label' => __( 'Hero Image', 'jbfj-choosing' ),
+			    'section' => 'hero',
+	            'settings' => 'hero_image'
+			)
+		)
+	);
 }
 add_action( 'customize_register', 'jbfj_choosing_customize_register' );
 
