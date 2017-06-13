@@ -744,6 +744,7 @@ figure a {
 .main-navigation li a {
 	text-decoration: none;
 	color: black;
+	padding: 23px 0;
 	transition: all .3s ease;
 }
 .main-navigation li a:visited {
