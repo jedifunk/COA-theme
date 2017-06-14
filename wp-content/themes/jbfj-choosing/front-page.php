@@ -22,7 +22,7 @@ get_header(); ?>
 				<?php
 					$args = array(
 						'post_status' => 'publish',
-						'cat' => 9,
+						'category_name' => 'featured',
 						'posts_per_page' => 2,
 					);
 
@@ -48,6 +48,7 @@ get_header(); ?>
 								<?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
 								<div class="entry-meta">
 									<?php jbfj_choosing_posted_on(); ?>
+									<?php jbfj_choosing_entry_footer($post->ID); ?>
 								</div><!-- .entry-meta -->
 							</figcaption>
 						</figure>
@@ -59,7 +60,8 @@ get_header(); ?>
 				<?php
 					$args = array(
 						'post_status' => 'publish',
-						'cat' => 9,
+						'category_name' => 'featured',
+						'offset' => 2,
 						'posts_per_page' => 3,
 					);
 
@@ -85,6 +87,7 @@ get_header(); ?>
 								<?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
 								<div class="entry-meta">
 									<?php jbfj_choosing_posted_on(); ?>
+									<?php jbfj_choosing_entry_footer($post->ID); ?>
 								</div><!-- .entry-meta -->
 							</figcaption>
 						</figure>

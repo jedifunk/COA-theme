@@ -23,6 +23,7 @@ if ( get_the_post_thumbnail($post->ID) != '' ) {
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php jbfj_choosing_posted_on(); ?>
+			<?php jbfj_choosing_entry_footer($post->ID); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -42,7 +43,4 @@ if ( get_the_post_thumbnail($post->ID) != '' ) {
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php jbfj_choosing_entry_footer($post->ID); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

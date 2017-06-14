@@ -796,6 +796,16 @@ header .flex-wrapper {
 .site-title a:active {
 	color: black;
 }
+header .searchform::before {
+	font-family: 'FontAwesome';
+	content: '\f002';
+}
+header input[type="search"] {
+	border: transparent;
+}
+header input[type="search"]:focus {
+	outline: none;
+}
 
 /* Content */
 .hero {
@@ -871,21 +881,11 @@ header .flex-wrapper {
 	display: inline;
 }
 .tax-links a,
-.widget_categories a {
-	padding: 6px 10px 7px;
-	color: white;
-	font-size: .625rem;
-	font-weight: 600;
+.widget_categories a {;
 	text-decoration: none;
-	text-transform: uppercase;
 }
-.cat-links a,
-.widget_categories a {
-	background-color: red;
-}
-.location-links a {
-	background-color: yellow;
-	color: black;
+.featured-item .tax-links a{
+	color: white;
 }
 .tax a:hover {
 
