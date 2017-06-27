@@ -22,8 +22,10 @@ get_header(); ?>
 				<?php
 					$args = array(
 						'post_status' => 'publish',
-						'category_name' => 'featured',
+						//'category_name' => 'featured',
+						'post__in' => get_option( 'sticky_posts' ),
 						'posts_per_page' => 2,
+						'ignore_sticky_posts' => 1
 					);
 
 					$feat = new WP_Query( $args );
@@ -60,9 +62,11 @@ get_header(); ?>
 				<?php
 					$args = array(
 						'post_status' => 'publish',
-						'category_name' => 'featured',
+						//'category_name' => 'featured',
+						'post__in' => get_option( 'sticky_posts' ),
 						'offset' => 2,
 						'posts_per_page' => 3,
+						'ignore_sticky_posts' => 1
 					);
 
 					$feat = new WP_Query( $args );
@@ -100,14 +104,20 @@ get_header(); ?>
 				<div class="content inner-grid">
 					<?php
 					$args = array(
-						'cat' => 15,
-						'category__not_in' => 4
+						'category__not_in' => 4,
+						'ignore_sticky_posts' => 1,
+						'paged' => $paged
 					);
 					$all = new WP_Query( $args );
 					if ( $all->have_posts() ) : while ( $all->have_posts() ) : $all->the_post();
 						get_template_part( 'template-parts/content', 'front' );
 					endwhile;
-					the_posts_navigation();
+					the_posts_navigation(
+						array(
+							'prev_text' => __('<i class="fa fa-angle-left"></i> Older Posts'),
+							'next_text' => __('Newer Posts <i class="fa fa-angle-right"></i>')
+						)
+					);
 					wp_reset_postdata(); endif; ?>
 				</div>
 

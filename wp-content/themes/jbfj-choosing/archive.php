@@ -9,38 +9,48 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<div id="primary" class="content-area wrapper">
+		<header class="page-header">
+			<?php
+				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_description( '<div class="archive-description">', '</div>' );
+			?>
+		</header><!-- .page-header -->
 
-		<?php
-		if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+		<div class="grid-wrapper">
+			<main id="main" class="site-main" role="main">
 
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			if ( have_posts() ) : ?>
 
-				get_template_part( 'template-parts/content', get_post_format() );
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) : the_post();
 
-			endwhile;
+					if ( is_category( 'snapshots' ) ) :
 
-			the_posts_navigation();
+						get_template_part( 'template-parts/content', 'snapshot' );
 
-		else :
+					else :
 
-			get_template_part( 'template-parts/content', 'none' );
+						get_template_part( 'template-parts/content', get_post_format() );
 
-		endif; ?>
+					endif;
 
-		</main><!-- #main -->
+				endwhile;
+
+				the_posts_navigation();
+
+			else :
+
+				get_template_part( 'template-parts/content', 'none' );
+
+			endif; ?>
+
+			</main><!-- #main -->
+			<?php get_sidebar(); ?>
+		</div>
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
