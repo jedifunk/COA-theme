@@ -768,6 +768,7 @@ figure {
 	background-color: white;
 	top: 44px;
 	left: -1rem;
+	box-shadow: 0 4px 12px -6px black;
 }
 .main-navigation .menu-item-has-children:hover > .sub-menu {
 	display: block;
@@ -819,8 +820,11 @@ header input[type="search"] {
 header input[type="search"]:focus {
 	outline: none;
 }
-.archive .page-header {
+.archive .page-header,
+.search .page-header {
 	text-align: center;
+	padding: 2rem 0;
+	margin-bottom: 2rem;
 }
 
 /* Content */
@@ -891,7 +895,6 @@ header input[type="search"]:focus {
 /* Single Post */
 
 /* Categories */
-
 .post-categories,
 .widget_categories ul {
 	list-style: none;
