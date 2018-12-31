@@ -55,6 +55,10 @@ function jbfj_choosing_scripts() {
 	wp_enqueue_style( 'google-font', '//fonts.googleapis.com/css?family=Raleway:300,300i,400,600,600i|Playfair+Display:400,700', null, null, null);
 	wp_enqueue_script( 'fontawesome', '//use.fontawesome.com/edb89b209a.js', array(), null, null );
 	wp_enqueue_style( 'jbfj-choosing-style', get_stylesheet_uri() );
+	
+	if ( is_front_page() ) {
+	    wp_enqueue_script( 'coa-js', get_stylesheet_directory_uri().'/js/coa-js.js', null, null, true );
+    }
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

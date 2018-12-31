@@ -715,22 +715,21 @@ figure a {
 }
 
 /****** My Stuff *****/
+* {
+    box-sizing: border-box;
+}
 .wrapper {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
+	padding: 0 1rem;
 }
 .flex-wrapper {
-	display: flex;
+	display: block;
 }
 .grid-wrapper {
-	display: grid;
+	display: block;
 	grid-template-columns: [main] 2fr [sidebar] 1fr;
-	grid-gap: 2rem;
-}
-.inner-grid {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 2rem;
 }
 figure {
@@ -751,6 +750,7 @@ figure {
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: .75rem;
+	font-weight: 600;
 	color: black;
 	padding: 23px 0;
 	transition: all .3s ease;
@@ -787,10 +787,20 @@ figure {
 }
 /* Header */
 .site-header {
-	position: relative;
-	z-index: 10;
-	box-shadow: 0 0 12px -6px black;
-	margin-bottom: 2rem;
+	width: 100%;
+	z-index: 100;
+	background-color: white;
+    box-shadow: 0 0 12px -6px black;
+    margin-bottom: 2rem;
+}
+.home .site-header {
+    background-color: transparent;
+    box-shadow: 0 0 12px -6px transparent;
+	transition: all .5s ease-in-out;
+}
+.home .site-header.scrolled {
+    background-color: white;
+    box-shadow: 0 0 12px -6px black;
 }
 .home .site-header {
 	margin-bottom: 0;
@@ -810,21 +820,19 @@ header .flex-wrapper {
 .site-title a:active {
 	color: black;
 }
+header .searchform {
+    display: none;
+}
 header .searchform::before {
 	font-family: 'FontAwesome';
 	content: '\f002';
 }
 header input[type="search"] {
 	border: transparent;
+	background-color: transparent;  
 }
 header input[type="search"]:focus {
 	outline: none;
-}
-.archive .page-header,
-.search .page-header {
-	text-align: center;
-	padding: 2rem 0;
-	margin-bottom: 2rem;
 }
 
 /* Content */
@@ -833,6 +841,12 @@ header input[type="search"]:focus {
 }
 .hero img {
 	width: 100%;
+}
+.archive .page-header,
+.search .page-header {
+	text-align: center;
+	padding: 2rem 0;
+	margin-bottom: 2rem;
 }
 .entry-title {
 	font-weight: 400;
@@ -934,7 +948,7 @@ header input[type="search"]:focus {
 }
 /* Sidebar */
 .sidebar .widget {
-	padding: 0 2rem;
+	padding: 0;
 }
 .sidebar h2 {
 	font-size: 1.1rem;
@@ -947,4 +961,37 @@ header input[type="search"]:focus {
 }
 .widget_categories ul li {
 	margin: 2px;
+}
+
+/*** Mobile ***/
+@media (min-width: 500px) {
+    .flex-wrapper {
+        display: flex;
+    }
+    .inner-grid,
+    .grid-wrapper {
+        display: grid;
+    }
+    header .searchform {
+        display: block;
+    }
+    .sidebar .widget {
+        padding: 0 2rem;
+    }
+}
+@media (min-width: 769px) {
+    .site-header {
+        position: fixed;
+        margin-bottom: 0;
+    }
+    .content-area {
+        padding-top: 90px;
+    }
+    .home .content-area {
+        padding-top: 0;
+    }
+    .inner-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+    }
 }
