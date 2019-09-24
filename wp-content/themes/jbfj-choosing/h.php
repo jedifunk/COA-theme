@@ -5,7 +5,6 @@
  * @package Choosing_Our_Adventure
  */
 get_header(); ?>
-
 	<div class="hero">
 		<?php
 			if ( get_theme_mod( 'hero_image' ) ) :
@@ -13,6 +12,7 @@ get_header(); ?>
 		<img src="<?php echo get_theme_mod( 'hero_image' ); ?>" />
 		<?php endif; ?>
 	</div>
+
 	<div id="primary" class="content-area wrapper">
 		<main id="main" class="site-main" role="main">
 
@@ -64,9 +64,9 @@ get_header(); ?>
 						'ignore_sticky_posts' => 1
 					);
 
-					$feat = new WP_Query( $args );
+					$feat2 = new WP_Query( $args );
 
-					if ( $feat->have_posts() ) : while ( $feat->have_posts() ) : $feat->the_post();
+					if ( $feat2->have_posts() ) : while ( $feat2->have_posts() ) : $feat2->the_post();
 
         					// Get BKG image
         					if ( get_the_post_thumbnail($post->ID) != '' ) {
@@ -94,28 +94,35 @@ get_header(); ?>
 			</div>
 
 			<div class="grid-wrapper">
+                <div>
+    				<div class="content inner-grid">
+    					<?php
+        				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-				<div class="content inner-grid">
-					<?php
-					$args = array(
-    					    'offset' => 5,
-						'ignore_sticky_posts' => 1,
-						'paged' => $paged
-					);
-					$all = new WP_Query( $args );
-					
-					if ( $all->have_posts() ) : while ( $all->have_posts() ) : $all->the_post();
-						get_template_part( 'template-parts/content', 'front' );
-					endwhile;
-					
-					the_posts_navigation(
+    					$args = array(
+        				    'offset' => 5,
+    						'ignore_sticky_posts' => 1,
+    						'posts_per_page' => 5,
+    						'paged' => $paged
+    					);
+    					$all = new WP_Query( $args );
+
+    					if ( $all->have_posts() ) : while ( $all->have_posts() ) : $all->the_post();
+    						get_template_part( 'template-parts/content', 'simple' );
+    					endwhile;
+
+    					wp_reset_postdata(); wp_reset_query(); endif;
+    					?>
+    				</div>
+    				<?php
+                    the_posts_navigation(
 						array(
 							'prev_text' => __('<i class="fa fa-angle-left"></i> Older Posts'),
 							'next_text' => __('Newer Posts <i class="fa fa-angle-right"></i>')
 						)
 					);
-					wp_reset_postdata(); endif; ?>
-				</div>
+                    ?>
+                </div>
 
 				<?php get_sidebar(); ?>
 

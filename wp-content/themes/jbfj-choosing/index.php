@@ -5,40 +5,42 @@
  * @package Choosing_Our_Adventure
  */
 
-get_header(); ?>
+get_header();
+
+if ( ! is_paged() ) :
+
+include_once('h.php');
+
+else : ?>
 
 	<div id="primary" class="content-area wrapper">
-		<main id="main" class="site-main" role="main">
-
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+		<div class="grid-wrapper">
+			<main class="content inner-grid">
 
 			<?php
-			endif;
+			if ( have_posts() ) : ?>
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-			
-				get_template_part( 'template-parts/content', get_post_format() );
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) : the_post();
 
-			endwhile;
+				    get_template_part( 'template-parts/content', 'simple' );
 
-			the_posts_navigation();
+				endwhile;
 
-		else :
+				the_posts_navigation();
 
-			get_template_part( 'template-parts/content', 'none' );
+			else :
 
-		endif; ?>
+				get_template_part( 'template-parts/content', 'none' );
 
-		</main><!-- #main -->
+			endif; ?>
+
+			</main><!-- #main -->
+			<?php get_sidebar(); ?>
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+endif;
+
 get_footer();

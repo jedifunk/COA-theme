@@ -992,7 +992,8 @@ header input[type="search"]:focus {
 		.main-navigation > li a {
 			padding: 12px 0;
 		}
-    .content-area {
+		.content-area,
+    .home.paged .content-area {
         padding-top: 90px;
     }
     .home .content-area {
